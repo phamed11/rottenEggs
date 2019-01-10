@@ -18,6 +18,7 @@ public class Player {
   private String email;
   private String password;
   private boolean activated;
+  private long countResult;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinTable(name = "player_roles",
@@ -35,14 +36,9 @@ public class Player {
     this.email = email;
     this.password = password;
     this.activated = activated;
+    this.countResult = 0;
   }
 
-  public Player(String firstName, String lastName, String email, String password) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.password = password;
-  }
 
   public EggRole getRole() {
     return role;

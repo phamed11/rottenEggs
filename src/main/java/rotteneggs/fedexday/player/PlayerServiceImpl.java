@@ -16,11 +16,13 @@ public class PlayerServiceImpl implements PlayerService {
 
   private PlayerRepository playerRepository;
   private JwtProvider jwtProvider;
+  private EggRoleRepository eggRoleRepository;
 
   @Autowired
-  public PlayerServiceImpl(PlayerRepository playerRepository, JwtProvider jwtProvider) {
+  public PlayerServiceImpl(PlayerRepository playerRepository, JwtProvider jwtProvider, EggRoleRepository eggRoleRepository) {
     this.playerRepository = playerRepository;
     this.jwtProvider = jwtProvider;
+    this.eggRoleRepository = eggRoleRepository;
   }
 
   @Override
@@ -33,7 +35,9 @@ public class PlayerServiceImpl implements PlayerService {
   }
 
   public void createPlayer(String firstName, String lastName, String email, String password, boolean activated) {
-    playerRepository.save(new Player(firstName, lastName, email, password, true));
+    Player player = new Player(firstName, lastName, email, password, true);
+    player.setRole(eggRoleRepository.findByName("ROLE_PLAYER"));
+    playerRepository.save(player);
   }
 
   @Override

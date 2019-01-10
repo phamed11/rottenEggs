@@ -22,8 +22,8 @@ public class ClientDetailsService implements UserDetailsService {
   PlayerService playerService;
 
   @Override
-  public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    Player player = playerService.findOneByEmail(username);
+  public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    Player player = playerService.findOneByEmail(email);
     if (player == null) {
       throw new AuthenticationCredentialsNotFoundException("Email address is not found");
     }
