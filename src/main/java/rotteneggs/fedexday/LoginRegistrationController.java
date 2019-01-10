@@ -45,8 +45,7 @@ public class LoginRegistrationController {
   }
 
   @PostMapping("/login")
-  public String login(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password, Model model,
-                      RedirectAttributes redirectAttributes) {
+  public String login(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password, Model model) {
     String errorMessage = playerService.validateLogin(email, password);
     model.addAttribute("error", errorMessage);
     if (errorMessage != null) {
@@ -54,6 +53,16 @@ public class LoginRegistrationController {
       return "login";
     }
     System.out.println("successful login with email: " + email);
+    return "redirect:/game";
+  }
+
+  @GetMapping("/game")
+  public String mainPage() {
+    return "mainpage";
+  }
+
+  @GetMapping("/")
+  public String getMainPage() {
     return "redirect:/game";
   }
 }
