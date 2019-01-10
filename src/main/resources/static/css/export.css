@@ -1,0 +1,30 @@
+.body-white {
+    background-color: #ffffff;
+}
+
+.trim {
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    width: 282px;
+}
+
+.oval {
+    border-radius: 1em;
+    height: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.leftimage {
+    border-radius: 50%;
+    width: 250px;
+    height: auto;
+}
+
+@page {
+    margin-top: 2cm;
+    margin-left: 2cm;
+    margin-right: 2cm;
+    margin-bottom: 2cm;
+    size: A4 portrait;
+}

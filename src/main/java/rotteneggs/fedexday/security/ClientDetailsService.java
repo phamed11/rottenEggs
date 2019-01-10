@@ -31,7 +31,7 @@ public class ClientDetailsService implements UserDetailsService {
   }
 
   public User createSecurityUserFromClient(Player player) {
-    List<GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority(player.getRole().getName().name()));
+    List<GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("Player"));
     User securityUser = new UserBuilder()
         .username(player.getEmail())
         .password(player.getPassword())

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/reglogin.css">
+    <title>Registration</title>
+</head>
+<body>
+<div class="formcontainer">
+    <p class="title">Registration</p>
+    <div th:if="${errors != null}">
+        <p class="alert alert-danger" th:each="error : ${errors}" th:text="${error}"></p>
+    </div><br/>
+    <form action="/registration" method="post" th:object="${user}">
+        <div>
+            <label for="firstName">First name: </label>
+            <input type="text" name="firstName" id="firstName" th:maxlength="255" th:field="*{firstName}" required>
+        </div>
+        <div>
+            <label for="lastName">Last name: </label>
+            <input type="text" name="lastName" id="lastName" th:maxlength="255" th:field="*{lastName}" required>
+        </div>
+        <div>
+            <label for="email">Email address: </label>
+            <input type="email" name="email" id="email" th:maxlength="255" th:field="*{email}" required>
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" th:field="*{password}" th:minlength="8" required>
+        </div>
+        <div>
+            <label for="confirm">Confirm password: </label>
+            <input type="password" name="confirm" id="confirm">
+        </div>
+        <input type="submit" value="Register">
+    </form>
+</div>
+</body>
+</html>

@@ -37,8 +37,4 @@ public class PlayerController {
     model.addAttribute("currentUser", playerService.getCurrentUser(request));
   }
 
-  @GetMapping("/")
-  public String getMainPage() {
-    return "redirect:/game";
-  }
 }

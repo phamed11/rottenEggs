@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -11,11 +13,11 @@
     <body>
         <div class="formcontainer">
             <p class="title">Login</p>
-            <!--<p th:text="${error}"></p>-->
+            <p th:text="${error}"></p>
 
-            <!--<div th:if="${message}" class="alert alert-success">-->
-                <!--<p th:text="${message}"></p>-->
-            <!--</div>-->
+            <div th:if="${message}" class="alert alert-success">
+                <p th:text="${message}"></p>
+            </div>
 
             <form action="/login" method="post">
                 <label for="email">Email: </label><input type="email" name="email" id="email"></br>
