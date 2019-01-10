@@ -37,4 +37,9 @@ public class PlayerController {
     model.addAttribute("currentUser", playerService.getCurrentUser(request));
   }
 
+  @GetMapping("/game")
+  public String mainPage() {
+    return "game";
+  }
+
 }

@@ -54,7 +54,6 @@ public class LoginRegistrationController {
       return "login";
     }
     System.out.println("successful login with email: " + email);
-    return "game";
+    return "redirect:/game";
   }
-
 }

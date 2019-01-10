@@ -18,12 +18,11 @@ public class Player {
   private String email;
   private String password;
   private boolean activated;
-  private String profilePicUrl;
 
   @ManyToOne(fetch = FetchType.EAGER)
-  @JoinTable(name = "rotteneggs_user_roles",
-      joinColumns = @JoinColumn(name = "rotteneggs_user_id"),
-      inverseJoinColumns = @JoinColumn(name = "rotteneggs_user_role_id"))
+  @JoinTable(name = "player_roles",
+      joinColumns = @JoinColumn(name = "player_id"),
+      inverseJoinColumns = @JoinColumn(name = "player_role_id"))
   private EggRole role;
 
 
