@@ -52,7 +52,6 @@ public class LoginRegistrationController {
       return "login";
     }
     System.out.println("successful login with email: " + email);
-    System.out.println(playerService.findOneByEmail(email).getRole());
     return "redirect:/game";
   }
 
