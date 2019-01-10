@@ -15,7 +15,7 @@
     <div th:if="${errors != null}">
         <p class="alert alert-danger" th:each="error : ${errors}" th:text="${error}"></p>
     </div><br/>
-    <form action="/registration" method="post" th:object="${user}">
+    <form action="/registration" method="post" th:object="${player}">
         <div>
             <label for="firstName">First name: </label>
             <input type="text" name="firstName" id="firstName" th:maxlength="255" th:field="*{firstName}" required>

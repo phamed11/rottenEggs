@@ -26,15 +26,15 @@ public class LoginRegistrationController {
   }
 
   @PostMapping("/registration")
-  public String signUp(@ModelAttribute Player user, @RequestParam(name = "confirm") String confirm, Model model, RedirectAttributes redirectAttributes) {
-    List<String> errorMessage = playerService.validateSignUp(user, confirm);
+  public String signUp(@ModelAttribute Player player, @RequestParam(name = "confirm") String confirm, Model model) {
+    List<String> errorMessage = playerService.validateSignUp(player, confirm);
     model.addAttribute("errors", errorMessage);
     if (errorMessage != null && !errorMessage.isEmpty()) {
       System.out.println("loginError");
       return "registration";
     }
-    playerService.signUp(user);
-    System.out.println(user.getFirstName() + " " + user.getLastName() + " is registered to Player");
+    playerService.signUp(player);
+    System.out.println(player.getFirstName() + " " + player.getLastName() + " is registered to Player");
     return "redirect:/login";
   }
 
