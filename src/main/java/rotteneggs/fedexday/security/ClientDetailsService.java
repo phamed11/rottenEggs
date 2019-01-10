@@ -35,6 +35,7 @@ public class ClientDetailsService implements UserDetailsService {
     User securityUser = new UserBuilder()
         .username(player.getEmail())
         .password(player.getPassword())
+        .enabled(true)
         .accountNonExpired(true)
         .credentialsNonExpired(true)
         .accountNonLocked(true)

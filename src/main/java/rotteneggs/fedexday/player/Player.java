@@ -44,4 +44,12 @@ public class Player {
     this.email = email;
     this.password = password;
   }
+
+  public EggRole getRole() {
+    return role;
+  }
+
+  public void setRole(EggRole role) {
+    this.role = role;
+  }
 }

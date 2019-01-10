@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/css/reglogin.css">
+        <title>Login</title>
+    </head>
+    <body>
+        <div class="formcontainer">
+            <p class="title">Login</p>
+            <!--<p th:text="${error}"></p>-->
+
+            <!--<div th:if="${message}" class="alert alert-success">-->
+                <!--<p th:text="${message}"></p>-->
+            <!--</div>-->
+
+            <form action="/login" method="post">
+                <label for="email">Email: </label><input type="email" name="email" id="email"></br>
+                <label for="password">Password: </label><input type="password" name="password" id="password"></br>
+                <label for="remember-me">Remember me?</label><input type="checkbox" name="remember-me" id="remember-me"></br>
+                <input type="submit" value="Login">
+            </form>
+            <div class="registration">
+                <p>Don't have an account?</p>
+                <a href="/registration" class="registration">Click here to register.</a>
+            </div>
+        </div>
+    </body>
+</html>

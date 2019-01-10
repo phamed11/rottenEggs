@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/errorMessage.css">
+    <title>An error happened</title>
+</head>
+<body>
+<div class="formcontainer">
+    <h2 th:text="${message}"></h2>
+    <h2 th:text="${status}"></h2>
+    <h2 th:text="${error}"></h2>
+    <button><i class="fa fa-home"><a href="/">Go Home</a></i></button>
+</div>
+</body>
+</html>
