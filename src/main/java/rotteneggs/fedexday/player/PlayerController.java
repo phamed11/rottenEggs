@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -41,6 +43,12 @@ public class PlayerController {
   public String mainPage(Model model) {
     model.addAttribute("top5", playerService.getTop5());
     return "mainpage";
+  }
+
+  @PostMapping("/game")
+  public String Counter(@RequestParam(value = "email") String email, @RequestParam(value = "counter") long counter) {
+    playerService.changeCountForPlayer(email, counter);
+    return "redirect:/game";
   }
 
   @GetMapping("/")

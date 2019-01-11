@@ -2,20 +2,34 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/reglogin.css">
 <head>
   <meta charset="UTF-8" />
   <title>MainPage</title>
 </head>
 <body>
 here you are
-<div>
-  <ul th:each="player : ${top5}">
-    <li th:text="${player.getFirstName()} + ${player.getLastName()}"></li>
-    <li th:text="${player.getEmail()}"></li>
-    <li th:text="${player.getCountResult()}"></li>
-  </ul>
+<div class="container">
+  <table class="table" th:each="player : ${top5}">
+    <tbody>
+    <td th:text="${player.getFirstName()} + ${player.getLastName()}"></td>
+    <td th:text="${player.getEmail()}"></td>
+    <td th:text="${player.getCountResult()}"></td>
+    <td>
+      <form action="/game" method="post">
+        <input type="number" name="counter">
+        <input type="hidden" name="email" th:value="${player.getEmail()}">
+        <input class="btn btn-success" role="button" type="submit" value="Submit">
 
+      </form>
+    </td>
+    </tbody>
+  </table>
 </div>
+
 
 <a class="element" href="/logout">Log out</a>
 </body>
