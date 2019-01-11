@@ -9,6 +9,8 @@ import rotteneggs.fedexday.security.JwtProvider;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -118,5 +120,37 @@ public class PlayerServiceImpl implements PlayerService {
       player.setRole(eggRoleService.findByName("ROLE_PLAYER"));
     return playerRepository.save(player);
   }
+
+  @Override
+  public void changeCountForPlayer(String email, long count) {
+    Player player = playerRepository.findPlayerByEmail(email);
+    if (player.getCountResult() < count) {
+      player.setCountResult(count);
+      playerRepository.save(player);
+    }
+  }
+
+  @Override
+  public List<Player> getTop5() {
+    List<Player> allPlayers = playerRepository.findAll();
+    Collections.sort(allPlayers, new Sortbyroll());
+    List<Player> top5Players = new ArrayList<>();
+    for (int i = 0; i < 5; i++) {
+      top5Players.add(allPlayers.get(i));
+    }
+    return top5Players;
+  }
+
+  private class Sortbyroll implements Comparator<Player> {
+    // Used for sorting in ascending order of
+    // roll number
+    public int compare(Player a, Player b)
+    {
+      return (int) (a.getCountResult() - b.getCountResult());
+    }
+  }
+
+
+
 
 }

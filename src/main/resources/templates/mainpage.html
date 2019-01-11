@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
   <meta charset="UTF-8" />
   <title>MainPage</title>
 </head>
 <body>
 here you are
+<div>
+  <ul th:each="player : ${top5}">
+    <li th:text="${player.getFirstName()} + ${player.getLastName()}"></li>
+    <li th:text="${player.getEmail()}"></li>
+    <li th:text="${player.getCountResult()}"></li>
+  </ul>
+
+</div>
+
 <a class="element" href="/logout">Log out</a>
 </body>
 </html>

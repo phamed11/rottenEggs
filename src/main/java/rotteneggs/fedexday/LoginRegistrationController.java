@@ -55,13 +55,5 @@ public class LoginRegistrationController {
     return "redirect:/game";
   }
 
-  @GetMapping("/game")
-  public String mainPage() {
-    return "mainpage";
-  }
 
-  @GetMapping("/")
-  public String getMainPage() {
-    return "redirect:/game";
-  }
 }
