@@ -36,6 +36,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     if (request.getParameter("remember-me") != null) {
       cookie.setMaxAge((int) SecurityConstants.EXPIRATION_TIME / 1000);
     }
+    System.out.println("login successful");
     response.addCookie(cookie);
     response.sendRedirect("/");
   }

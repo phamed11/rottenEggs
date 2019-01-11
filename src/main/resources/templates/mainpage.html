@@ -11,9 +11,9 @@
   <title>MainPage</title>
 </head>
 <body>
-here you are
+Current user <p th:text="${currentUser.getFirstName()} + ' ' + ${currentUser.getLastName()}"></p>
 <div class="container">
-  <table class="table" th:each="player : ${top5}">
+  <table class="table table-hover" th:each="player : ${top5}">
     <tbody>
     <td th:text="${player.getFirstName()} + ${player.getLastName()}"></td>
     <td th:text="${player.getEmail()}"></td>

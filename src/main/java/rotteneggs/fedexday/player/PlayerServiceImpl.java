@@ -137,6 +137,7 @@ public class PlayerServiceImpl implements PlayerService {
     List<Player> top5Players = new ArrayList<>();
     for (int i = 0; i < 5; i++) {
       top5Players.add(allPlayers.get(i));
+      allPlayers.get(i).setPassword("not telling you");
     }
     return top5Players;
   }
