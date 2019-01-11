@@ -7,5 +7,5 @@ import java.util.List;
 public interface EggRoleRepository extends CrudRepository<EggRole, Long> {
 
   List<EggRole> findAll();
-  EggRole findByName(String name);
+  EggRole findByName(RoleName name);
 }
