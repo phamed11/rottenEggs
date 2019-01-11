@@ -124,7 +124,7 @@ public class PlayerServiceImpl implements PlayerService {
   @Override
   public void changeCountForPlayer(String email, long count) {
     Player player = playerRepository.findPlayerByEmail(email);
-    if (player.getCountResult() < count) {
+    if (player.getCountResult() > count) {
       player.setCountResult(count);
       playerRepository.save(player);
     }
