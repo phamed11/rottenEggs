@@ -11,4 +11,6 @@ public interface PlayerService {
   List<String> validateSignUp(Player player, String confirm);
   String validateLogin(String email, String password);
   Player signUp(Player player);
+  void changeCountForPlayer(String email, long count);
+  List<Player> getTop5();
 }
