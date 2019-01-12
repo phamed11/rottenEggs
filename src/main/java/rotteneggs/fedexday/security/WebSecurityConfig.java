@@ -51,7 +51,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/login").permitAll()
         .antMatchers("/registration/**").permitAll()
         .antMatchers("/admin/**").hasRole("ADMIN")
-        .antMatchers("/**.ico", "/**.png", "/**.jpg", "/static/**", "/css/**").permitAll()
+        .antMatchers("/**.ico", "/**.png", "/**.jpg", "/static/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);

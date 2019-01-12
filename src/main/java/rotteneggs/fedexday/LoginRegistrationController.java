@@ -43,17 +43,17 @@ public class LoginRegistrationController {
     return "login";
   }
 
-  @PostMapping("/login")
-  public String login(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password, Model model) {
-    String errorMessage = playerService.validateLogin(email, password);
-    model.addAttribute("error", errorMessage);
-    if (errorMessage != null) {
-      System.out.println("failed login with email: " + email);
-      return "login";
-    }
-    System.out.println("successful login with email: " + email);
-    return "redirect:/game";
-  }
+//  @PostMapping("/login")
+//  public String login(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password, Model model) {
+//    String errorMessage = playerService.validateLogin(email, password);
+//    model.addAttribute("error", errorMessage);
+//    if (errorMessage != null) {
+//      System.out.println("failed login with email: " + email);
+//      return "login";
+//    }
+//    System.out.println("successful login with email: " + email);
+//    return "redirect:/game";
+//  }
 
 
 }
